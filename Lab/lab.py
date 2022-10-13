@@ -291,20 +291,20 @@ if __name__ == '__main__':
     print(np.corrcoef(dis_cos, dis_cos_truth))
     
     words = ['film', 'shift', 'berkeley']
+    # ret = []
+    # for i in range(1, 10):
+    #     ret_line = []
+    #     for w in words:
+    #         ret_line.append(- np.dot(w2e_dict[w][i], w2e_dict[w][i-1])/ (np.linalg.norm(w2e_dict[w][i]) * np.linalg.norm(w2e_dict[w][i-1])))
+    #     ret.append(ret_line)
+    # ret = pd.DataFrame(ret, columns=['film', 'shift', 'berkeley'])
+    # sns.lineplot(data=ret)
+    # plt.savefig('./between.pdf')
     ret = []
-    for i in range(1, 10):
+    for i in range(10):
         ret_line = []
         for w in words:
-            ret_line.append(- np.dot(w2e_dict[w][i], w2e_dict[w][i-1])/ (np.linalg.norm(w2e_dict[w][i]) * np.linalg.norm(w2e_dict[w][i-1])))
-        ret.append(ret_line)
-    ret = pd.DataFrame(ret, columns=['film', 'shift', 'berkeley'])
-    sns.lineplot(data=ret)
-    plt.savefig('./between.pdf')
-    ret = []
-    for i in range(1, 10):
-        ret_line = []
-        for w in words:
-            ret_line.append(- np.dot(w2e_dict[w][i], w2e_dict[w][i-1])/ (np.linalg.norm(w2e_dict[w][i]) * np.linalg.norm(w2e_dict[w][i-1])))
+            ret_line.append(- np.dot(w2e_dict[w][i], w2e_dict[w][0])/ (np.linalg.norm(w2e_dict[w][i]) * np.linalg.norm(w2e_dict[w][0])))
         ret.append(ret_line)
     ret = pd.DataFrame(ret, columns=['film', 'shift', 'berkeley'])
     sns.lineplot(data=ret)
